@@ -1,0 +1,17 @@
+nav {
+    li.nav-link {
+        a {
+            color: #ffc7c7;
+        }
+
+        &.active a {
+            color: #ffffff;
+        }
+    }
+
+    li.nav-logout {
+        margin-left: 20px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+    }
+}
