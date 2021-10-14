@@ -10,11 +10,11 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  form!: FormGroup;
+  public form!: FormGroup;
   public submitted: boolean = false;
 
   constructor(
-    private auth: AuthService, 
+    public auth: AuthService, 
     private router: Router
   ) {}
   
@@ -41,10 +41,15 @@ export class LoginPageComponent implements OnInit {
       password: this.form.value.password
     };
 
-    this.auth.login(user).subscribe(() => {
-      this.form.reset();
-      this.router.navigate(['/admin', 'dashboard']);
-      this.submitted = false;
-    });
+    this.auth.login(user).subscribe(
+      () => {
+        this.form.reset();
+        this.router.navigate(['/admin', 'dashboard']);
+        this.submitted = false;
+      }, 
+      () => { 
+        this.submitted = false;
+      }
+     );
   }
 }
