@@ -4,11 +4,14 @@
   </h1>
 
   <ul *ngIf="auth.isAuthentication()">
-    <li class="nav-link" routerLinkActive="active">
-      <a [routerLink]="['/admin', 'dashboard']">Main page</a>
+    <li class="nav-link">
+      <a [routerLink]="['/']">Posts</a>
     </li>
     <li class="nav-link" routerLinkActive="active">
-      <a [routerLink]="['/admin', 'create']">Create Post</a>
+      <a [routerLink]="['/admin', 'dashboard']">Dashboard</a>
+    </li>
+    <li class="nav-link" routerLinkActive="active">
+      <a [routerLink]="['/admin', 'create']">Create post</a>
     </li>
     <li class="nav-logout">
       <a href="#" (click)="logout($event)">Logout</a>

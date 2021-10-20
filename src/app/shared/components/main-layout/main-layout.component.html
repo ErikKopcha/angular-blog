@@ -1,5 +1,17 @@
-<nav class="navbar main">
-  <h1>Angular Blog</h1>
+<nav class="navbar bg-primary">
+  <h1>
+    <a routerLink="/">Angular Blog</a>
+  </h1>
+
+  <ul>
+    <li class="nav-logout">
+      <a *ngIf="!auth.isAuthentication(); else adminPage" [routerLink]="['/admin', 'login']" href="#">Login</a>
+      <ng-template #adminPage>
+        <a [routerLink]="['/admin', 'dashboard']" href="#">Dashboard</a>
+        <a (click)="logout()" href="#">Logout</a>
+      </ng-template>
+    </li>
+  </ul>
 </nav>
 
 <div class="container">
