@@ -16,8 +16,19 @@
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control"
+    [ngClass]="{
+      invalid: form.get('text')?.touched && form.get('text')?.invalid
+    }"
+  >
     <label>Post content</label>
+    <angular-editor formControlName="text" [config]="editorConfig"></angular-editor>
+    <div
+      *ngIf="form.get('text')?.touched && form.get('text')?.invalid"
+      class="validation">
+      <small *ngIf="form.get('text')?.errors?.required"
+      >Enter your content</small>
+    </div>
   </div>
 
   <div
