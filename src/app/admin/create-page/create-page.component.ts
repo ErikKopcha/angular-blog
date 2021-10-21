@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Post} from "../../shared/interfaces";
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import {PostService} from "../../shared/components/post.service";
 
 @Component({
   selector: 'app-create-page',
@@ -57,7 +58,7 @@ export class CreatePageComponent implements OnInit {
       ]
     };
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -84,5 +85,9 @@ export class CreatePageComponent implements OnInit {
     };
 
     console.log('post', post);
+
+    this.postService.create(post).subscribe(() => {
+      this.form.reset();
+    })
   }
 }

@@ -14,5 +14,6 @@ export interface Post {
   title: String,
   text: String,
   author: String,
-  date: Date
+  date: Date,
+  name?: String
 }
