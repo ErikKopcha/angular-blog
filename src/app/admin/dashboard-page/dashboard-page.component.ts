@@ -18,6 +18,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.pSub = this.postsService.getAll().subscribe(posts => {
+      console.log('posts', posts)
       this.posts = posts;
     });
   }
