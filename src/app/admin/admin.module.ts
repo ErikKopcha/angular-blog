@@ -10,6 +10,7 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthService } from "./shared/services/auth.service";
 import { AuthGuard } from "./shared/services/auth.guard";
 import {SharedModule} from "../shared/shared.module";
+import {SearchPipe} from "./shared/pipes/search.pipe";
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import {SharedModule} from "../shared/shared.module";
       DashboardPageComponent,
       CreatePageComponent,
       EditPageComponent,
+      SearchPipe
     ],
     imports: [
         FormsModule,
