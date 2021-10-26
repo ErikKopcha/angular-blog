@@ -14,8 +14,8 @@ import {Subscription} from "rxjs";
 export class EditPageComponent implements OnInit, OnDestroy {
 
   private uSub!: Subscription;
-  public form!: FormGroup;
   private post!: Post;
+  public form!: FormGroup;
   public submited: boolean = false;
 
   constructor(
@@ -46,7 +46,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
 
     this.submited = true;
 
-    this.postServise.update({
+    this.uSub = this.postServise.update({
       id: this.post.id,
       text: this.form.value.text,
       title: this.form.value.title,
