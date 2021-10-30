@@ -9,8 +9,10 @@ import { CreatePageComponent } from './create-page/create-page.component';
 import { EditPageComponent } from './edit-page/edit-page.component';
 import { AuthService } from "./shared/services/auth.service";
 import { AuthGuard } from "./shared/services/auth.guard";
-import {SharedModule} from "../shared/shared.module";
-import {SearchPipe} from "./shared/pipes/search.pipe";
+import { SharedModule } from "../shared/shared.module";
+import { SearchPipe } from "./shared/pipes/search.pipe";
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { AlertService } from "./shared/services/alert.service";
 
 @NgModule({
     declarations: [
@@ -19,7 +21,8 @@ import {SearchPipe} from "./shared/pipes/search.pipe";
       DashboardPageComponent,
       CreatePageComponent,
       EditPageComponent,
-      SearchPipe
+      SearchPipe,
+      AlertComponent
     ],
     imports: [
         FormsModule,
@@ -39,7 +42,7 @@ import {SearchPipe} from "./shared/pipes/search.pipe";
         ])
     ],
     exports: [],
-    providers: [AuthService, AuthGuard]
+    providers: [AuthService, AuthGuard, AlertService]
 })
 
 export class AdminModule {}

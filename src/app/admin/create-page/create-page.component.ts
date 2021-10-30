@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Post} from "../../shared/interfaces";
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import {PostService} from "../../shared/components/post.service";
+import {AlertService} from "../shared/services/alert.service";
 
 @Component({
   selector: 'app-create-page',
@@ -58,7 +59,10 @@ export class CreatePageComponent implements OnInit {
       ]
     };
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private alert: AlertService,
+    private postService: PostService
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -84,10 +88,9 @@ export class CreatePageComponent implements OnInit {
       date: new Date()
     };
 
-    console.log('post', post);
-
     this.postService.create(post).subscribe(() => {
       this.form.reset();
+      this.alert.success('Post created!');
     })
   }
 }
