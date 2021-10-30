@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import {AuthService} from "./admin/shared/services/auth.service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {AuthInterseptor} from "./shared/auth.interseptor";
+import {FormsModule} from "@angular/forms";
 
 const INTERSEPTOR_PROVIDER: Provider = {
   provide: HTTP_INTERCEPTORS,
@@ -26,11 +27,12 @@ const INTERSEPTOR_PROVIDER: Provider = {
     PostPageComponent,
     PostComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        SharedModule,
+        FormsModule
+    ],
   providers: [AuthService, INTERSEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
