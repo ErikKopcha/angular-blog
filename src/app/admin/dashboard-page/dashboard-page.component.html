@@ -15,7 +15,7 @@
       <td>{{ i + 1 }}</td>
       <td>{{ post.author }}</td>
       <td>{{ post.title }}</td>
-      <td>{{ post.date | date: 'medium' }}</td>
+      <td>{{ post.date | date:'medium' }}</td>
       <td>
         <button [routerLink]="['/admin', 'post', post.id, 'edit']" class="btn btn-success mr-2">Open</button>
         <button (click)="removePost(post.id)" class="btn btn-danger">Delete</button>
